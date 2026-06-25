@@ -166,7 +166,7 @@ impl StrandSim {
         let m1 = 0.1_f32;
         let tan_angle = 0.577_35_f32;
 
-        self.params.num_iterations = 100;
+        self.params.num_iterations = 200;
         self.params.acceleration_rho = 0.0;
         self.params.out_path = "output/Test8_5Verts_stiffnessRatio48_accelerated".to_string();
 
@@ -199,8 +199,8 @@ impl StrandSim {
 
     /// Top-level initialise — picks a scene and creates the output directory.
     pub fn initialize(&mut self) {
-        self.initialize_tilted();
-        // Alternatively: self.initialize_stiff_ratio();
+        // self.initialize_tilted();
+        self.initialize_stiff_ratio();
 
         self.out_path = self.params.out_path.clone();
         fs::create_dir_all(&self.out_path).expect("Failed to create output directory");
